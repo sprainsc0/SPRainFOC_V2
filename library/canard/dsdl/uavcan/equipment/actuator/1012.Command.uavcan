@@ -1,0 +1,18 @@
+#
+# Nested type.
+# Single actuator command.
+#
+
+uint8 actuator_id
+
+#
+# Whether the units are linear or angular depends on the actuator type.
+#
+uint8 command_type
+
+#
+# Value of the above type
+#
+float16 command_value1
+float16 command_value2
+float16 command_value3

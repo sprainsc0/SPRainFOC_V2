@@ -1,0 +1,17 @@
+# 1080
+# UWB info.
+#
+# Typical publishing rate should be around 10 Hz.
+#
+
+uavcan.Timestamp timestamp
+
+uint8      base_id
+bool       healthy
+bool       fixed
+float32    distance
+float32[3] base_position
+float16    accuracy
+uint8      N_beacons
+
+float16[3] pos_offset

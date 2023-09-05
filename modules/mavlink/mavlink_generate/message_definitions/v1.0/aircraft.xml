@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<mavlink>
+  <include>common.xml</include>
+  <version>1</version>
+  <enums>
+    <enum name="MAV_CALIBRATE_TYPE">
+      <description>These values define the type of calibration.</description>
+      <entry value="0" name="ACCELEMETER_CALIBRATION">
+        <description>accelemeter calibration</description>
+      </entry>
+      <entry value="1" name="GYROSCOPE_CALIBRATION">
+        <description>gyroscope calibration</description>
+      </entry>
+      <entry value="2" name="COMPASS_CALIBRATION">
+        <description>compass calibration</description>
+      </entry>
+      <entry value="3" name="ESC_CALIBRATION">
+        <description>esc calibration</description>
+      </entry>
+      <entry value="4" name="RC_CALIBRATION">
+        <description>rc calibration</description>
+      </entry>
+      <entry value="5" name="AIRSPEED_CALIBRATION">
+        <description>airspeed calibration</description>
+      </entry>
+    </enum>
+  </enums>
+  <messages>
+    <message id="150" name="CONTROL">
+      <description>Vibration levels and accelerometer clipping</description>
+      <field type="uint64_t" name="time_usec" units="us">Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude the number.</field>
+      <field type="float" name="rate_x">rate control on X-axis</field>
+      <field type="float" name="rate_y">rate control on Y-axis</field>
+      <field type="float" name="rate_z">rate control on Z-axis</field>
+      <field type="float" name="angle_x">angle control on X-axis</field>
+      <field type="float" name="angle_y">angle control on Y-axis</field>
+      <field type="float" name="angle_z">angle control on Z-axis</field>
+      <field type="uint8_t" name="mode">control mode</field>
+    </message>
+    <message id="151" name="COMPENSATION">
+      <description>Vibration levels and accelerometer clipping</description>
+      <field type="uint64_t" name="time_usec" units="us">Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude the number.</field>
+      <field type="float" name="mag_x">mag X-axis</field>
+      <field type="float" name="mag_y">mag Y-axis</field>
+      <field type="float" name="mag_z">mag Z-axis</field>
+      <field type="float" name="acc_x">acc X-axis</field>
+      <field type="float" name="acc_y">acc Y-axis</field>
+      <field type="float" name="acc_z">acc Z-axis</field>
+      <field type="float" name="decl">decl</field>
+    </message>
+    <message id="152" name="FCINFO">
+      <description>Vibration levels and accelerometer clipping</description>
+      <field type="uint64_t" name="time_usec" units="us">Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude the number.</field>
+      <field type="float" name="eular_x">eular X-axis</field>
+      <field type="float" name="eular_y">eular Y-axis</field>
+      <field type="float" name="eular_z">eular Z-axis</field>
+      <field type="float" name="target_eular_x">target eular X-axis</field>
+      <field type="float" name="target_eular_y">target eular Y-axis</field>
+      <field type="float" name="target_eular_z">target eular Z-axis</field>
+      <field type="float" name="target_yaw_rate">RC input yaw rate</field>
+      <field type="uint8_t" name="flighting">armed flag</field>
+    </message>
+    <message id="153" name="CALIBRATE_STATUS">
+      <description>Calibrate status send to ground station.</description>
+      <field type="uint8_t" name="type"  enum="MAV_CALIBRATE_TYPE">The type of calibration.</field>
+      <field type="uint8_t" name="status">The status of calibration.</field>
+      <field type="float" name="param1">Parameter1.</field>
+      <field type="float" name="param2">Parameter2.</field>
+      <field type="float" name="param3">Parameter3.</field>
+    </message>
+  </messages>
+</mavlink>

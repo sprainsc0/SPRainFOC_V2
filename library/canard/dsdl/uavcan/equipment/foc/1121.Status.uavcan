@@ -1,0 +1,9 @@
+#
+# Generic FOC gimbal status.
+# Unknown fields should be set to NAN.
+#
+
+uint4 error_code
+
+float32 angle
+

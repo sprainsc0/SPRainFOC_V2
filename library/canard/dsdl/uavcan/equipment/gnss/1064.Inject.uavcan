@@ -1,0 +1,24 @@
+# 1064
+# GNSS Inject data.
+#
+
+#
+# Global network-synchronized time, if available, otherwise zero.
+#
+uavcan.Timestamp timestamp
+
+#
+# length of data
+#
+uint8 len
+
+#
+# LSB: 1=fragmented
+#
+uint8 flags
+
+#
+#data to write to GPS device (RTCM message)
+#
+uint8[<=182] data
+

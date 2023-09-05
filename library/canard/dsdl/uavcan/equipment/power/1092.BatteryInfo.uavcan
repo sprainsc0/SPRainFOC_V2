@@ -1,0 +1,21 @@
+# 1092
+# Single battery info.
+#
+# Typical publishing rate should be around 0.2~1 Hz.
+#
+# Please refer to the Smart Battery data specification for some elaboration.
+#
+
+#
+# Primary parameters.
+# Some fields can be set to NAN if their values are unknown.
+# Full charge capacity is expected to slowly reduce as the battery is aging. Normally its estimate is updated after
+# every charging cycle.
+#
+float16 temperature             # [Kelvin]
+float16 voltage                 # [Volt]
+float16 current                 # [Ampere]
+float16 average_power_10sec     # [Watt]        Average power consumption over the last 10 seconds
+float16 remaining_capacity_wh   # [Watt hours]  Will be increasing during charging
+float16 full_charge_capacity_wh # [Watt hours]  Predicted battery capacity when it is fully charged. Falls with aging
+

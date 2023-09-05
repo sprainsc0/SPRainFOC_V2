@@ -1,0 +1,6 @@
+# 1021
+# IAS.
+#
+
+float16 indicated_airspeed              # m/s
+float16 indicated_airspeed_variance     # (m/s)^2

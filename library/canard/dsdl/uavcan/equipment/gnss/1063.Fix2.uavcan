@@ -1,0 +1,85 @@
+# 1063
+# GNSS ECEF and LLA navigation solution with uncertainty.
+#
+
+#
+# Global network-synchronized time, if available, otherwise zero.
+#
+uavcan.Timestamp timestamp
+
+#
+# Time solution.
+# The method and number of leap seconds which were in use for deriving the timestamp are
+# defined in the fields below.
+#
+uavcan.Timestamp gnss_timestamp
+
+#
+# Method used for deriving the GNSS timestamp field.
+# This data type relies on the following definitions:
+#
+#   Leap seconds  - Accumulated one-second adjustments applied to UTC since 1972.
+#                   For reference, on May 2017, the number of leap seconds was equal 27.
+#                   The number of leap seconds is taken from the field num_leap_seconds.
+#                   Refer to https://en.wikipedia.org/wiki/Leap_second for a general overview.
+#
+#   TAI timestamp - The number of microseconds between the current TAI time and
+#                   the TAI time at UTC 1970-01-01T00:00:00.
+#
+#   UTC timestamp - The number of microseconds between the current UTC time and
+#                   UTC 1970-01-01T00:00:00.
+#                   UTC can be expressed via TAI as follows (in seconds):
+#                       UTC = TAI - num_leap_seconds - 10
+#                   And via GPS (in seconds):
+#                       UTC = GPS - num_leap_seconds + 9
+#
+#   GPS timestamp - The number of microseconds between the current GPS time and
+#                   the GPS time at UTC 1970-01-01T00:00:00.
+#                   GPS time can be expressed via TAI as follows (in seconds):
+#                       GPS = TAI - 19
+#
+uint3 GNSS_TIME_STANDARD_NONE = 0  # Time is unknown
+uint3 GNSS_TIME_STANDARD_TAI  = 1
+uint3 GNSS_TIME_STANDARD_UTC  = 2
+uint3 GNSS_TIME_STANDARD_GPS  = 3
+uint3 gnss_time_standard
+
+void13   # Reserved space
+
+uint4    gnss_id
+
+uint8    lag_ms
+
+#
+# Position and velocity solution
+#
+int37 longitude_deg_1e8            # Longitude degrees multiplied by 1e8 (approx. 1 mm per LSB)
+int37 latitude_deg_1e8             # Latitude degrees multiplied by 1e8 (approx. 1 mm per LSB on equator)
+int27 height_msl_mm                # Height above mean sea level in millimeters
+
+float32[3] ned_velocity            # NED frame (north-east-down) in meters per second
+
+#
+# Fix status
+#
+uint6 sats_used
+
+uint3 status
+
+#
+# Precision
+#
+float32 pos_covariance    # Position and velocity covariance. Units are
+                            # m^2 for position, (m/s)^2 for velocity and
+                            # m^2/s for position/velocity.
+float32 hgt_covariance
+
+float32 vel_covariance
+
+float16 hdop
+
+float16 vdop
+
+float16[3] pos_offset
+
+

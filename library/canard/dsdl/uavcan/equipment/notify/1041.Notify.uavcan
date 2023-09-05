@@ -1,0 +1,30 @@
+# 1041
+# Notify info.
+#
+
+uint2 NOTIFY_LOCK      = 1
+uint2 NOTIFY_UNLOCK    = 0
+uint2 lock
+
+uint2 NOTIFY_GROUP_CAL    = 1
+uint2 NOTIFY_GROUP_CHECK  = 0
+uint2 group
+
+uint4 NOTIFY_PRIORITY_VERY_HIGH   = 4
+uint4 NOTIFY_PRIORITY_HIGH        = 3
+uint4 NOTIFY_PRIORITY_MEDIUM      = 2
+uint4 NOTIFY_PRIORITY_LOW         = 1
+uint4 NOTIFY_PRIORITY_VERY_LOW    = 0
+uint4 priority
+
+uint16 LED_PATTERN_BGC_OFF            = 0x0000 
+uint16 LED_PATTERN_BGC_ON             = 0xFFFF 
+uint16 LED_PATTERN_BGC_SLOW    		  = 0x0003
+uint16 LED_PATTERN_BGC_FAST           = 0x5555
+uint16 LED_PATTERN_BGC_MOD1 		  = 0x0500
+uint16 LED_PATTERN_BGC_MOD2 		  = 0x0550
+uint16 LED_PATTERN_BGC_MOD3 		  = 0x050F
+uint16 led_status
+
+uint32 rgb         
+

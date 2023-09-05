@@ -1,0 +1,15 @@
+#
+# Raw FOC command normalized into [-8192, 8191]; negative values indicate reverse rotation.
+# The FOC should normalize the setpoint into its effective input range.
+# Non-zero setpoint value below minimum should be interpreted as min valid setpoint for the given motor.
+#
+
+# FOC run mode
+uint3 FOC_MODE_IDLE        = 0
+uint3 FOC_MODE_OPENLOOP    = 1
+uint3 FOC_MODE_TORQUE      = 2
+uint3 FOC_MODE_SPEED       = 3
+uint3 FOC_MODE_POSITION    = 4
+uint3 mode
+
+float16[3] target

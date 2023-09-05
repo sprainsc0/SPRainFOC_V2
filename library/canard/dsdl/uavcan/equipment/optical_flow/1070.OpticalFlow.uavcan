@@ -1,0 +1,19 @@
+#
+# Nested type.
+# Optical Flow angular and velocity.
+#
+
+#
+# Time solution.
+# The method and number of leap seconds which were in use for deriving the timestamp are
+# defined in the fields below.
+#
+uavcan.Timestamp timestamp
+
+float32[2] velocity_xy             # Optical XY velocity
+
+float32[3] angular_delta           # XYZ-axis angular in rad
+
+float16[2] covariance
+
+float16[3] pos_offset
